@@ -1,0 +1,89 @@
+Dog bobik = new Dog("woof", "meat", "home", "Bobik");
+bobik.makeNoise();
+Cat babos = new Cat("meow", "fish", "super home", "Babos");
+babos.eat();
+Horse africa = new Horse("neigh", "carrot", "shed", "Africa");
+africa.makeNoise();
+priem(bobik.name);
+priem(babos.name);
+priem(africa.name);
+void priem(string name)
+{
+    Console.WriteLine($"{name} at the vet's appointment");
+}
+class Animal
+{
+    public string name;
+    public string food; 
+    public string location;
+    public Animal (string food, string location, string name)
+    {
+        this.food = food;
+        this.location = location;
+        this.name = name;
+    }
+    public virtual void makeNoise()
+    {
+        Console.WriteLine(name);
+    }
+    public  void sleep(string a)
+    {
+        Console.WriteLine($"{a} sleeps");
+    }
+    public virtual void eat()
+    {
+        Console.WriteLine(name);
+    }
+   
+}
+class Dog : Animal
+{ 
+    public string noise; 
+
+    public Dog (string noise, string food, string location, string name ) : base(food, location, name)
+    {
+        this.noise = noise;
+    }
+    public override void eat()
+    {
+        Console.WriteLine($"{name} eats");
+    }
+    public override void makeNoise()
+    {
+        Console.WriteLine($"{name} makes noise {noise}");
+    }
+}
+class Cat : Animal
+{
+    public string noise;
+
+    public Cat(string noise, string food, string location, string name) : base(food, location, name)
+    {
+        this.noise = noise;
+    }
+    public override void eat()
+    {
+        Console.WriteLine($"{name} eats");
+    }
+    public override void makeNoise()
+    {
+        Console.WriteLine($"{name} makes noise {noise}");
+    }
+}
+class Horse : Animal
+{
+    public string noise;
+
+    public Horse(string noise, string food, string location, string name) : base(food, location, name)
+    {
+        this.noise = noise;
+    }
+    public override void eat()
+    {
+        Console.WriteLine($"{name} eats");
+    }
+    public override void makeNoise()
+    {
+        Console.WriteLine($"{name} makes noise {noise}");
+    }
+}
