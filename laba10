@@ -1,0 +1,79 @@
+using System;
+
+Student[] students = new Student[3];
+Student vanya = new Student("Ivanov Ivan Ivanovich", 2019, "Bebrovo st.", "8900000000", 4, "Science");
+Student tema = new Student("Ilin Artem Dmitrievich", 2020, "Bebrovo st.", "890000334550", 3, "History");
+Student masha = new Student("Maltseva Maria Michailovna", 2021, "Bebrovo st.", "8900000000", 2, "Science");
+students[0]=vanya;
+students[1]=tema;
+students[2]=masha;
+for (int i = 0; i < 3; i++)
+{
+    Console.WriteLine(students[i].FIOs);
+
+}
+Console.WriteLine("Enter Faculty's name");
+string fakult=Console.ReadLine();
+for (int i = 0;i < 3; i++)
+{
+    if (students[i].fakultet == fakult)
+    {
+        Console.WriteLine(students[i].FIOs);
+    }
+}
+Console.WriteLine("Enter number of the Course");
+int kurs=Convert.ToInt32(Console.ReadLine());
+for (int i = 0; i < 3; i++)
+{
+    if (students[i].course > kurs)
+    {
+        Console.WriteLine(students[i].FIOs);
+    }
+}
+class Student
+{
+    private string FIO;
+    private int datapostuplenie;
+    private string adres;
+    private string telephone;
+    private int kurs;
+    private string fakultet;
+    public Student(string FIO, int datapostuplenie, string adres, string telephone, int kurs, string fakultet)
+    {
+        this.FIO = FIO;
+        this.datapostuplenie = datapostuplenie;
+        this.adres = adres;
+        this.telephone = telephone;
+        this.course = kurs;
+        this.fakultet = fakultet;
+
+    }
+    public string FIOs
+    {
+        get { return FIO; }
+        set { FIO = value; }
+    }
+    public int Datapostuplenia
+    {
+        set { Datapostuplenie = value; }
+    } 
+    public string Adres
+    {
+
+        get { return adres; }
+    }
+    public string Telephone
+    {
+        get { return telephone; }
+        set { telephone = value; }
+    }
+    public int Kurs
+    {
+        get { return kurs; }
+        set { kurs = value; }
+    }
+    public string Fakultet
+    {
+        get { return fakultet; }
+    }
+}
