@@ -1,0 +1,10 @@
+Console.WriteLine("enter the path"); // написать путь
+string.path = Console.ReadLine();
+string path1 = Directory.GetCurrentDirectory();
+if (File.Exists(path)) // проверка есть ли файл
+{
+    string text = File.ReadAllText(path); // считать текст из файла
+    File.WriteAllText(path1 + "\\2.txt", text); // записать считанный текст
+    Console.WriteLine(path1 + "\\2.txt"); // вывести путь к файлу
+}
+else Console.WriteLine("error");
