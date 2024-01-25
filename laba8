@@ -1,26 +1,31 @@
-Console.WriteLine("Введите x и y");
-int x = Convert.ToInt32(Console.ReadLine());
-int y = Convert.ToInt32(Console.ReadLine());
-try
+// Здесь мы объявляем переменные x, y и z, которые будут вводиться пользователем.
+using System;
+int x = 0;
+int y = 0;
+int z = 0;
+
+// Запрос у пользователя ввода значения для x
+Console.Write("x: ");
+x = Convert.ToInt32(Console.ReadLine());
+
+// Здесь мы проверяем, является ли введенное значение для x равным нулю
+if (x == 0)
 {
-    int z = x / y; }
-catch (DivideByZeroException) when (y == 0) {
-    Console.WriteLine("Ошибка");
+    throw new Exception("x can't be equal to null");
 }
-try
+
+// Запрос у пользователя ввода значения для y.
+Console.Write("y: ");
+y = Convert.ToInt32(Console.ReadLine());
+
+// Здесь мы проверяем, является ли введенное значение для y равным нулю
+if (y == 0)
 {
-    int z = x / y;
-    if (x == 0)
-    {
-        throw new Exception("x равен нулю");
-    }   
-    else
-    {
-        Console.WriteLine($"Ответ:{z}");
-    }
+    throw new Exception("y can't be equal to null");
 }
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
- 
+
+// Вычисление значения выражения z=x/y.
+z = x / y;
+
+// Вывод результата.
+Console.WriteLine($"z=x/y: {z}");
