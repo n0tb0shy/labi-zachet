@@ -4,38 +4,54 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Создание матрицы
-        int x = int.Parse(Console.ReadLine());
-        int y = int.Parse(Console.ReadLine());
-        int[,] matrix = new int[x, y];
+        Console.Write("enter rows: ");
+        int rows = int.Parse(Console.ReadLine());
 
+        Console.Write("enter columns: ");
+        int columns = int.Parse(Console.ReadLine());
 
-        // Нахождение наибольшего элемента матрицы
-        int maxElement = matrix[0, 0];
-        foreach (int element in matrix)
+        int[,] matrix = new int[rows, columns];
+
+        Console.WriteLine("enter elements:");
+        for (int i = 0; i < rows; i++)
         {
-            if (element > maxElement)
+            for (int j = 0; j < columns; j++)
             {
-                maxElement = element;
+                Console.Write($"element [{i},{j}]: ");
+                matrix[i, j] = int.Parse(Console.ReadLine());
             }
         }
 
-        // Замена нечетных элементов на наибольший элемент
-        for (int i = 0; i < matrix.GetLength(0); i++)
+        int maxValue = int.MinValue;
+
+        // находим наибольший элемент матрицы
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < matrix.GetLength(1); j++)
+            for (int j = 0; j < columns; j++)
             {
-                if (matrix[i, j] % 2 != 0)
+                if (matrix[i, j] > maxValue)
                 {
-                    matrix[i, j] = maxElement;
+                    maxValue = matrix[i, j];
                 }
             }
         }
 
-        // Вывод измененной матрицы
-        for (int i = 0; i < matrix.GetLength(0); i++)
+        // заменяем нечетные элементы на наибольший элемент
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < matrix.GetLength(1); j++)
+            for (int j = 0; j < columns; j++)
+            {
+                if (matrix[i, j] % 2 != 0)
+                {
+                    matrix[i, j] = maxValue;
+                }
+            }
+        }
+
+        Console.WriteLine("final matrix:");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++)
             {
                 Console.Write(matrix[i, j] + " ");
             }
